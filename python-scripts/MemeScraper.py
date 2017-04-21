@@ -45,6 +45,9 @@ class RedditScraper():
                 meme['downs'] = submission.downs
                 meme['id'] = submission.id
                 meme['subreddit_id'] = submission.subreddit_id
+                meme['spiciness'] = 0
+                meme['dankness'] = 0
+                meme['key'] = meme['subreddit_id'] + meme["id"]
                 # split_string = image_url.split("/")
                 # file_out = self.output_folder + "/" + subreddit + "/" + split_string[len(split_string) - 1]
                 #

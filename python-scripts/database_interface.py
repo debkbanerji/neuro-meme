@@ -46,7 +46,7 @@ storage = firebase.storage()
 #     pushRef.set(to_push)
 
 def upload_train_meme(item):
-    pushRef = db.child("memes-train").child(item['subreddit_id'] + item["id"])
+    pushRef = db.child("memes-train").child(item['key'])
     print(item)
     pushRef.set(item)
     # print(item)

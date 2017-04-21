@@ -1,0 +1,25 @@
+<nav class="navbar navbar-danger">
+    <div class="container-fluid" style="width: inherit">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="width: inherit">
+            <ul class="nav navbar-nav">
+
+                <li data-ng-class="{'active': $ctrl.viewMemes, 'current-tab': $ctrl.viewMemes, 'nav-bar-fade-on-hover': !$ctrl.viewMemes}"><a href="/view-memes">View Memes</a></li>
+                <li data-ng-class="{'active': $ctrl.classifyMemes, 'current-tab': $ctrl.classifyMemes, 'nav-bar-fade-on-hover': !$ctrl.classifyMemes}"><a href="/classify-memes">Classify Memes</a></li>
+                <li data-ng-class="{'active': $ctrl.about, 'current-tab': $ctrl.about, 'nav-bar-fade-on-hover': !$ctrl.about}"><a href="/about">About</a></li>
+
+                <li id="sign_out" class="nav-bar-fade-on-hover" ng-click="$ctrl.signOut()" style="cursor: pointer"><a>Sign Out</a></li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

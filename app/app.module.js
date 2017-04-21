@@ -1,0 +1,1 @@
+angular.module('neuroMemeApp', ['ngRoute', 'ngAnimate', 'login', 'firebase', 'navBar', 'viewMemes', 'about', 'classifyMemes']);

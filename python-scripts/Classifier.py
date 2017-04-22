@@ -1,3 +1,4 @@
+import random
 import time
 
 import database_interface
@@ -7,7 +8,7 @@ import database_interface
 from NeuralNet import buildNeuralNet
 
 subreddits = ['ProgrammerHumor', 'wholesomememes', 'memes']
-subreddits = ['memes']
+subreddits = ['ProgrammerHumor', 'memes', 'wholesomememes']
 
 # millis = int(round(time.time() * 1000))
 
@@ -56,7 +57,9 @@ print(accuracy)
 scraper = RedditScraper()
 
 for subreddit in subreddits:
-    result = scraper.scrape_subreddit(subreddit, 200)
+    result = scraper.scrape_subreddit(subreddit, 100)
+    random.shuffle(result)
+    result = result[int(result.__len__() / 2):]
     for item in result:
         packed_meme = pack_meme(item)
         feedForwardResult = nnet.feedForward(packed_meme[0])

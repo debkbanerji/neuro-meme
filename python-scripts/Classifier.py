@@ -6,12 +6,12 @@ from MemeScraper import RedditScraper
 import database_interface
 from NeuralNet import buildNeuralNet
 
-subreddits = ['ProgrammerHumor', 'wholesomememes']
-subreddits = ['ProgrammerHumor']
+subreddits = ['ProgrammerHumor', 'wholesomememes', 'memes']
+subreddits = ['memes']
 
 # millis = int(round(time.time() * 1000))
 
-scaling_factor = 100  # Dividing  because numbers are too big
+scaling_factor = 1000  # Dividing  because numbers are too big
 
 
 def pack_meme(meme):
@@ -47,8 +47,8 @@ numExamples = examples.__len__()
 # print(examples)
 trainExamples, testExamples = examples[:int(examples.__len__() / 2)], examples[int(examples.__len__() / 2):]
 
-nnet, accuracy = buildNeuralNet((trainExamples, testExamples), alpha=0.1, weightChangeThreshold=0.0000000008,
-                                hiddenLayerList=[4, 4], maxItr=20000,
+nnet, accuracy = buildNeuralNet((trainExamples, testExamples), alpha=0.1, weightChangeThreshold=0.00000008,
+                                hiddenLayerList=[], maxItr=20000,
                                 startNNet=None)
 
 print(accuracy)
@@ -56,15 +56,15 @@ print(accuracy)
 scraper = RedditScraper()
 
 for subreddit in subreddits:
-    result = scraper.scrape_subreddit(subreddit, 2000)
+    result = scraper.scrape_subreddit(subreddit, 200)
     for item in result:
         packed_meme = pack_meme(item)
         feedForwardResult = nnet.feedForward(packed_meme[0])
         # print(pack_meme(item))
-        item['dankness'] = int(round(feedForwardResult[-1][0], 0))
-        item['spiciness'] = int(round(feedForwardResult[-1][0], 1))
-        item['dankness'] = feedForwardResult[-1][0]
-        item['spiciness'] = feedForwardResult[-1][0]
+        item['dankness'] = int(round(1000 * feedForwardResult[-1][0], 0))
+        item['spiciness'] = int(round(1000 * feedForwardResult[-1][0], 1))
+        # item['dankness'] = feedForwardResult[-1][0]
+        # item['spiciness'] = feedForwardResult[-1][0]
         print(item)
         database_interface.upload_classified_meme(item)
 

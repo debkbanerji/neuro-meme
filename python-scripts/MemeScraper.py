@@ -5,7 +5,7 @@ import json
 import os
 
 import praw
-import urllib.request
+# import urllib.request
 
 class RedditScraper():
     def __init__(self, output_folder="output"):

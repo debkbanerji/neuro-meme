@@ -10,3 +10,6 @@ serviceAccountCredentials.json
 
 # Output from scraper
 output
+
+# Nerual Net Implementation
+NeuralNet.py

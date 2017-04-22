@@ -51,3 +51,14 @@ def upload_train_meme(item):
     pushRef.set(item)
     # print(item)
     # db.child("memes-train").push(item)
+
+def upload_classified_meme(item):
+    pushRef = db.child("memes-classified").child(item['key'])
+    print(item)
+    pushRef.set(item)
+    # print(item)
+    # db.child("memes-train").push(item)
+
+def get_train():
+    return db.child("memes-train").get().val()
+

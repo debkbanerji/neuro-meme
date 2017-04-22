@@ -10,7 +10,7 @@ angular.module('neuroMemeApp').config(['$locationProvider', '$routeProvider',
             template: '<classify-memes></classify-memes>'
         }).when('/login', {
             template: '<login></login>'
-        }).otherwise('/login');
+        }).otherwise('/classify-memes');
 
 
         // use the HTML5 History API

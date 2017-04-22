@@ -57,3 +57,25 @@ a, u {
     cursor: pointer;
     cursor: hand;
 }
+
+#main-banner-image {
+    background-image: url("../assets/Header.png");
+    /*background-size: cover;*/
+    background-repeat: no-repeat;
+    background-position: 50% 0px;
+    margin-top: 5vw;
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+    z-index: -1;
+}
+
+#header-push {
+    height: 100vw;
+}
+
+#content {
+    background-color: white;
+    /*height: 50vh;*/
+    overflow: hidden;
+}

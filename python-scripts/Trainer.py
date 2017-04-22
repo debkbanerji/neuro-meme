@@ -6,7 +6,7 @@ import database_interface
 
 scraper = RedditScraper()
 subreddits = ['ProgrammerHumor', 'wholesomememes']
-subreddits = ['ProgrammerHumor','memes', 'wholesomememes']
+subreddits = ['ProgrammerHumor','memes', 'wholesomememes', 'PrequelMemes']
 for subreddit in subreddits:
     result = scraper.scrape_subreddit(subreddit, 100)
     random.shuffle(result)

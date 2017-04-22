@@ -8,7 +8,7 @@ import database_interface
 from NeuralNet import buildNeuralNet
 
 subreddits = ['ProgrammerHumor', 'wholesomememes', 'memes']
-subreddits = ['ProgrammerHumor', 'memes', 'wholesomememes']
+subreddits = ['ProgrammerHumor', 'memes', 'wholesomememes', 'PrequelMemes']
 
 # millis = int(round(time.time() * 1000))
 
@@ -64,6 +64,9 @@ for subreddit in subreddits:
         packed_meme = pack_meme(item)
         feedForwardResult = nnet.feedForward(packed_meme[0])
         # print(pack_meme(item))
+
+        item['dankness'] = 1000 * feedForwardResult[-1][0]
+        item['spiciness'] = 1000 * feedForwardResult[-1][0]
         item['dankness'] = int(round(1000 * feedForwardResult[-1][0], 0))
         item['spiciness'] = int(round(1000 * feedForwardResult[-1][0], 1))
         # item['dankness'] = feedForwardResult[-1][0]
